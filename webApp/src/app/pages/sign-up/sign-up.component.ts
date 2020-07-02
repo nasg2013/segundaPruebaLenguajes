@@ -28,11 +28,24 @@ export class SignUpComponent implements OnInit {
   doForm(){
 
     this.form = this.fb.group({
-      lastname: ['', [Validators.required]],
-      name:     ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      email:    ['', [Validators.required]]
+      lastname: ['', [Validators.required, Validators.minLength(1), Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ]{2,254}')]],
+      name:     ['', [Validators.required, Validators.minLength(1), Validators.pattern('[a-zA-ZñÑáéíóúÁÉÍÓÚ]{2,254}')]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('[a-zA-Z1234567890]{2,254}')]],
+      email:    ['', [Validators.required, Validators.email]]
     });
+  }
+
+  get lastnameValid(){
+    return this.form.get('lastname').invalid && this.form.get('lastname').touched;
+  }
+  get nameValid(){
+    return this.form.get('name').invalid && this.form.get('name').touched;
+  }
+  get passwordValid(){
+    return this.form.get('password').invalid && this.form.get('password').touched;
+  }
+  get emailValid(){
+    return this.form.get('email').invalid && this.form.get('email').touched;
   }
 
   onSubmit(){

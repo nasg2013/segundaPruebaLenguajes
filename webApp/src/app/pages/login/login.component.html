@@ -7,18 +7,18 @@
                     Iniciar Sesión
                 </span>
 
-
+                <span *ngIf="emailValid" class="text-danger">Correo inválido</span>
                 <div class="wrap-input100 m-b-16">
                     <input formControlName="email" class="input100" type="text" name="email" placeholder="Email">
                     <span class="focus-input100"></span>
-                    <span *ngIf="emailValid" class="text-danger">Correo inválido</span>
+
                 </div>
 
-
+                <span *ngIf="passwordValid" class="text-danger">La contraseña debe de ser más de 8 dígitos</span>
                 <div class="wrap-input100 m-b-16" data-validate="Password is required">
                     <input formControlName="password" class="input100" type="password" name="pass" placeholder="Password">
                     <span class="focus-input100"></span>
-                    <span *ngIf="passwordValid" class="text-danger">La contraseña debe de ser más de 8 dígitos</span>
+
                 </div>
 
                 <div class="flex-sb-m w-full p-t-3 p-b-24">
@@ -46,7 +46,3 @@
         </div>
     </div>
 </div>
-
-<pre>
-    {{ form.valid}}
-</pre>
