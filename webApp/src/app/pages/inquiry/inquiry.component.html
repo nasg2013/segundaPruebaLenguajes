@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <label for="content">Mensaje</label>
                     <textarea class="form-control" id="content" rows="3" formControlName="content"></textarea>
-                    <small *ngIf="contentValid" class="text-danger">Ingrese un mensaje</small>
+                    <span *ngIf="contentValid" class="text-danger">Ingrese correo valido</span>
                 </div>
                 <button class="btn btn-outline-light  btn-lg btn-block">Enviar</button>
             </form>

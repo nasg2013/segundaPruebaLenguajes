@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <ng-template ngFor let-item [ngForOf]="inquiries" let-i="index">
-            <div *ngIf="userId == inquiries[i].teacherid" class="col-4 mt-5 animated fadeInDownBig">
+            <div *ngIf="userId == inquiries[i].teacherid" class="col-lg-4 col-md-6 col-sm-12 mt-5 animated fadeInDownBig">
                 <div class="card text-white bg-dark mb-3 text-center" style="max-width: 18rem;">
                     <div class="card-body">
                         <a class="btn btn-outline-light m-2">{{inquiries[i].inquiryId}} </a>

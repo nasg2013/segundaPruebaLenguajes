@@ -4,20 +4,21 @@
             <form (ngSubmit)="login()" [formGroup]="form" class="login100-form validate-form flex-sb flex-w">
 
                 <span class="login100-form-title p-b-51">
-                    Login
+                    Iniciar Sesión
                 </span>
 
-                <!-- <span class="text-danger">El correo es obligatorio</span> -->
+
                 <div class="wrap-input100 m-b-16">
                     <input formControlName="email" class="input100" type="text" name="email" placeholder="Email">
-
                     <span class="focus-input100"></span>
+                    <span *ngIf="emailValid" class="text-danger">Correo inválido</span>
                 </div>
 
-                <!-- <span class="text-danger">La contraseña debe de ser más de 6 letras</span> -->
+
                 <div class="wrap-input100 m-b-16" data-validate="Password is required">
                     <input formControlName="password" class="input100" type="password" name="pass" placeholder="Password">
                     <span class="focus-input100"></span>
+                    <span *ngIf="passwordValid" class="text-danger">La contraseña debe de ser más de 8 dígitos</span>
                 </div>
 
                 <div class="flex-sb-m w-full p-t-3 p-b-24">
@@ -45,3 +46,7 @@
         </div>
     </div>
 </div>
+
+<pre>
+    {{ form.valid}}
+</pre>

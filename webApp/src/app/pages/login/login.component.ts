@@ -31,11 +31,19 @@ export class LoginComponent implements OnInit {
     this.doForm();
   }
 
+  get emailValid(){
+    return this.form.get('email').invalid && this.form.get('email').touched;
+  }
+  get passwordValid(){
+    return this.form.get('password').invalid && this.form.get('password').touched;
+  }
+  
+
   doForm(){
 
     this.form = this.fb.group({
-      password: ['', [Validators.required]],
-      email:    [this.user.email, [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      email:    [this.user.email, [Validators.required, Validators.email]],
       rememberme: [this.rememberme]
     });
   }
@@ -66,6 +74,8 @@ export class LoginComponent implements OnInit {
         Swal.close();        
         if(this.form.value.rememberme){
           localStorage.setItem('email', this.user.email);
+        }else{
+          localStorage.setItem('email', '');
         }
         this.router.navigateByUrl('/home');
       }else{
