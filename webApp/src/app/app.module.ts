@@ -13,7 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { InquiryComponent } from './pages/inquiry/inquiry.component';
 import { InquiryResponseComponent } from './pages/inquiry-response/inquiry-response.component';
 import { HomeComponent } from './pages/home/home.component';
-import { EmptyResponsePipe } from './pipes/empty-response.pipe';
+
 
 @NgModule({
   declarations: [
@@ -23,8 +23,7 @@ import { EmptyResponsePipe } from './pipes/empty-response.pipe';
     NavbarComponent,
     InquiryComponent,
     InquiryResponseComponent,
-    HomeComponent,
-    EmptyResponsePipe
+    HomeComponent
   ],
   imports: [
     BrowserModule,

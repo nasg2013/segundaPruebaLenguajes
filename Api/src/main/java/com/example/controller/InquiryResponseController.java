@@ -33,8 +33,6 @@ public class InquiryResponseController {
         }
     }
 
-
-
     @RequestMapping(path = "/", method = RequestMethod.POST)
     public void save(@RequestBody InquiryResponse inquiryResponse) {
         try {
