@@ -1,9 +1,7 @@
 package com.example.service;
 
-import com.example.lab.Inquiry;
 import com.example.lab.Users;
 import com.example.repository.UsersRepository;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +19,10 @@ public class UsersService {
         return repository.getAllUsers();
     }
 
+    public List<Users> getNewUser(){
+        return repository.getNewUser();
+    }
+
     public Users getUsersById(int id) {
         return repository.getUsersById(id);
     }
@@ -29,7 +31,13 @@ public class UsersService {
         return repository.getUsersByEmail(user.getEmail(),user.getPassword());
     }
 
-    public void save(Users user) {
-        repository.save(user);
+    public Users save(Users user) {
+        return repository.save(user);
     }
+
+    public Users addTeacher(Users user) {
+        return repository.addTeacher(user.getName(),user.getLastname(),user.getEmail(),user.getPassword());
+    }
+
+
 }

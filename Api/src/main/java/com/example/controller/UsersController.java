@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.example.lab.Inquiry;
 import com.example.lab.Users;
 import com.example.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,11 @@ public class UsersController {
         return service.getAllUsers();
     }
 
+    @GetMapping("/getNewUser")
+    public List<Users> getNewUser() {
+        return service.getNewUser();
+    }
+
     @GetMapping("id/{id}")
     public ResponseEntity<Users> get(@PathVariable Integer id) {
         try {
@@ -40,9 +44,15 @@ public class UsersController {
         return service.getUsersByEmail(user);
     }
 
-
     @RequestMapping(path = "/", method = RequestMethod.POST)
-    public void save(@RequestBody Users user) {
-        service.save(user);
+    public Users save(@RequestBody Users user) {
+        return service.save(user);
     }
+
+    @RequestMapping(path = "/teacher", method = RequestMethod.POST)
+    public Users addTeacher(@RequestBody Users user) {
+        return service.addTeacher(user);
+    }
+
+
 }

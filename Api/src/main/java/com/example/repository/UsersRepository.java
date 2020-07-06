@@ -12,10 +12,16 @@ public interface UsersRepository extends JpaRepository<Users, Integer> {
     @Query(value="SelectUsers", nativeQuery = true)
     List<Users> getAllUsers();
 
+    @Query(value="SelectUsersNewStudents", nativeQuery = true)
+    List<Users> getNewUser();
+
     @Query(value = "{ call SelectUsersById(:Users_id)}", nativeQuery = true)
     Users getUsersById(@Param("Users_id") Integer usersId);
 
     @Query(value = "{ call SelectUsersByEmail(:email,:password)}", nativeQuery = true)
     Users getUsersByEmail(@Param("email") String email,@Param("password") String password);
+
+    @Query(value = "{ call InsertTeacher(:name,:lastname,:email,:password)}", nativeQuery = true)
+    Users addTeacher(@Param("name") String name, @Param("lastname") String lastname, @Param("email") String email, @Param("password") String password);
 
 }

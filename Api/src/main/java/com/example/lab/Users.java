@@ -6,6 +6,8 @@ import javax.persistence.*;
 @Table(name="Users")
 @NamedStoredProcedureQuery( name="Users.getAllUsers",
         procedureName = "SelectUsers")
+@NamedStoredProcedureQuery( name="Users.getNewUser",
+        procedureName = "SelectUsersNewStudents")
 @NamedStoredProcedureQuery( name = "Users.getUsersById",
         procedureName = "SelectUsersById",
         parameters = {@StoredProcedureParameter(
@@ -15,6 +17,25 @@ import javax.persistence.*;
 @NamedStoredProcedureQuery( name = "Users.getUsersByEmail",
         procedureName = "SelectUsersByEmail",
         parameters = {
+                @StoredProcedureParameter(
+                        mode = ParameterMode.IN,
+                        name = "@Email",
+                        type = String.class),
+                @StoredProcedureParameter(
+                        mode = ParameterMode.IN,
+                        name = "@Password",
+                        type = String.class)})
+@NamedStoredProcedureQuery( name = "Users.addTeacher",
+        procedureName = "InsertTeacher",
+        parameters = {
+                @StoredProcedureParameter(
+                        mode = ParameterMode.IN,
+                        name = "@Name",
+                        type = String.class),
+                @StoredProcedureParameter(
+                        mode = ParameterMode.IN,
+                        name = "@Lastname",
+                        type = String.class),
                 @StoredProcedureParameter(
                         mode = ParameterMode.IN,
                         name = "@Email",
